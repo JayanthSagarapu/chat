@@ -6,12 +6,8 @@ const rootDir = require("../util/path");
 
 const router = express.Router();
 
-router.get("/login", (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "login.html"));
-});
-
-router.post("/product", (req, res, next) => {
-  res.redirect("/");
+router.get("/success", (req, res, next) => {
+  res.sendFile(path.join(rootDir, "views", "success.html"));
 });
 
 module.exports = router;

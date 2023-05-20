@@ -1,3 +1,5 @@
+const path = require("path");
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -5,14 +7,20 @@ const chatapp = express();
 
 const loginRoutes = require("./routes/login");
 const msgRoutes = require("./routes/message");
+const contactRoutes = require("./routes/contactus");
+const successRoutes = require("./routes/success");
 
 chatapp.use(bodyParser.urlencoded({ extended: false }));
 
+chatapp.use(express.static(path.join(__dirname, "public")));
+
 chatapp.use(loginRoutes);
 chatapp.use(msgRoutes);
+chatapp.use(contactRoutes);
+chatapp.use(successRoutes);
 
 chatapp.use((req, res, next) => {
-  res.status(404).send("<h1>Page not found</h1>");
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
 chatapp.listen(3000);

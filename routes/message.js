@@ -1,5 +1,10 @@
+const path = require("path");
+
 const express = require("express");
-const { use } = require("./login");
+// const { use } = require("./login");
+
+const rootDir = require("../util/path");
+
 const fs = require("fs");
 
 const router = express.Router();
@@ -9,9 +14,9 @@ router.get("/", (req, res, next) => {
     if (err) {
       console.log(err);
     }
-    res.send(
-      `${data}<form onsubmit="document.getElementById('username').value = localStorage.getItem('username')" action="/" method="POST"><input type="text" placeholder="msg" name="message" id="message"><input type="hidden" id="username" name="username"><button type="submit">Send</button></form>`
-    );
+
+    res.sendFile(path.join(rootDir, "views", "message.html"));
+    // res.send(`${data}`);
   });
 });
 

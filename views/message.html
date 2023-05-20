@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="nav">
+        <ul class="list">
+          <li class="list-item"><a href="/login">Login</a></li>
+          <li class="list-item"><a class="active" href="/">Message</a></li>
+          <li class="list-item"><a href="/contactus">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form
+        onsubmit="document.getElementById('username').value = localStorage.getItem('username')"
+        action="/"
+        method="POST"
+      >
+        <input type="text" placeholder="message" name="message" id="message" />
+        <input type="hidden" id="username" name="username" />
+        <button type="submit" id="btn">Send</button>
+      </form>
+      <!-- <div id="div"></div> -->
+    </main>
+    <!-- <script>
+      const div = document.getElementById("div");
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("onclick", () => {
+        div.innerHTML =
+          document.getElementById("username").value +
+          " : " +
+          document.getElementById("message").value;
+      });
+    </script> -->
+  </body>
+</html>
