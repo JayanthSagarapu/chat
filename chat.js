@@ -3,6 +3,8 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 
+const errorControllers = require("./controllers/error");
+
 const chatapp = express();
 
 const loginRoutes = require("./routes/login");
@@ -19,8 +21,6 @@ chatapp.use(msgRoutes);
 chatapp.use(contactRoutes);
 chatapp.use(successRoutes);
 
-chatapp.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
-});
+chatapp.use(errorControllers.get404);
 
 chatapp.listen(3000);
