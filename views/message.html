@@ -14,20 +14,20 @@
           <li class="list-item"><a href="/login">Login</a></li>
           <li class="list-item"><a class="active" href="/">Message</a></li>
           <li class="list-item"><a href="/contactus">Contact Us</a></li>
+          <li class="list-item"><a href="/store">Chat</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <form
         onsubmit="document.getElementById('username').value = localStorage.getItem('username')"
-        action="/"
+        action="/store"
         method="POST"
       >
         <input type="text" placeholder="message" name="message" id="message" />
         <input type="hidden" id="username" name="username" />
         <button type="submit" id="btn">Send</button>
       </form>
-      <!-- <div id="div"></div> -->
     </main>
     <!-- <script>
       const div = document.getElementById("div");
