@@ -14,31 +14,40 @@
           <li class="list-item"><a href="/login">Login</a></li>
           <li class="list-item"><a class="active" href="/">Message</a></li>
           <li class="list-item"><a href="/contactus">Contact Us</a></li>
-          <li class="list-item"><a href="/store">Chat</a></li>
+          <li class="list-item"><a href="/chatt">Chat</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <form
         onsubmit="document.getElementById('username').value = localStorage.getItem('username')"
-        action="/store"
+        action="/"
         method="POST"
+        target="_blank"
       >
         <input type="text" placeholder="message" name="message" id="message" />
+
         <input type="hidden" id="username" name="username" />
         <button type="submit" id="btn">Send</button>
       </form>
+      <!-- <div
+        id="data-area"
+        style="
+          width: 50%;
+          border: 2px solid;
+          padding: 50px;
+          margin-top: 5px;
+          margin-left: 25%;
+        "
+      ></div> -->
     </main>
-    <!-- <script>
-      const div = document.getElementById("div");
-      const btn = document.getElementById("btn");
+    <script>
+      // console.log(name);
+      // const btn = document.getElementById("btn");
 
-      btn.addEventListener("onclick", () => {
-        div.innerHTML =
-          document.getElementById("username").value +
-          " : " +
-          document.getElementById("message").value;
-      });
-    </script> -->
+      // btn.addEventListener("click", () => {
+      //   div.innerHTML += localStorage.getItem("username") + " : " + msg.value;
+      // });
+    </script>
   </body>
 </html>

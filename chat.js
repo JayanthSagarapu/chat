@@ -11,7 +11,7 @@ const loginRoutes = require("./routes/login");
 const msgRoutes = require("./routes/message");
 const contactRoutes = require("./routes/contactus");
 const successRoutes = require("./routes/success");
-const storeRoutes = require("./routes/store");
+const chatRoutes = require("./routes/chatt");
 
 chatapp.use(bodyParser.urlencoded({ extended: false }));
 
@@ -21,7 +21,7 @@ chatapp.use(loginRoutes);
 chatapp.use(msgRoutes);
 chatapp.use(contactRoutes);
 chatapp.use(successRoutes);
-chatapp.use(storeRoutes);
+chatapp.use(chatRoutes);
 
 chatapp.use(errorControllers.get404);
 

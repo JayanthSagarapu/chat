@@ -4,8 +4,8 @@ const chatControllers = require("../controllers/chats");
 
 const router = express.Router();
 
-router.get("/contactus", chatControllers.getContactus);
+router.get("/chatt", chatControllers.getChatMessage);
 
-router.post("/products", chatControllers.postContactus);
+router.post("/chatt", chatControllers.postChatMessage);
 
 module.exports = router;

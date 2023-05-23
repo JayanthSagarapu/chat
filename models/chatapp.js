@@ -1,9 +1,5 @@
 const fs = require("fs");
-
 const path = require("path");
-
-const rootDir = require("../util/path");
-const express = require("express");
 
 module.exports = class Chat {
   constructor(username, message) {
@@ -12,32 +8,35 @@ module.exports = class Chat {
   }
 
   save() {
-    const p = path.join(rootDir, "data", "chats.json");
-
+    const p = path.join(
+      path.dirname(process.mainModule.filename),
+      "data",
+      "chats.json"
+    );
     fs.readFile(p, (err, fileContent) => {
       let chats = [];
-      if (err) {
-        console.log(err);
+      if (!err) {
+        chats = JSON.parse(fileContent);
       }
       chats.push(this);
-      fs.writeFile(
-        p,
-        `${this.username} : ${this.message}`,
-        { flag: "a" },
-        (err) => {
-          console.log(err);
-        }
-      );
+
+      fs.writeFile(p, JSON.stringify(chats), (err) => {
+        console.log(err);
+      });
     });
   }
 
   static fetchAll(cb) {
-    const p = path.join(rootDir, "data", "chats.json");
+    const p = path.join(
+      path.dirname(process.mainModule.filename),
+      "data",
+      "chats.json"
+    );
     fs.readFile(p, (err, fileContent) => {
       if (err) {
         cb([]);
       }
-      cb(JSON.parse(fileContent));
+      cb(fileContent);
     });
   }
 };
